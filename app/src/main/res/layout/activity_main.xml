@@ -19,7 +19,8 @@
         android:id="@+id/button13"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Remplacer" />
+        android:text="Remplacer"
+        android:onClick="onReplaceFragment"/>
 
     <fragment
         android:id="@+id/fragment1"
