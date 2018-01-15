@@ -12,8 +12,14 @@
         android:id="@+id/button12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Ajouter"
         android:onClick="onAddFragment"/>
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remplacer" />
 
     <fragment
         android:id="@+id/fragment1"

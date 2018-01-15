@@ -16,8 +16,11 @@ import android.app.Fragment;
     }
 
      public void onAddFragment(View view) {
+        //Instantciation du fragment
         FragmentB fragmentB = new FragmentB();
+        //Récupération d'une instance du gestionnaire de fragment
          FragmentManager manager = getFragmentManager();
+         //Début de la transaction
          FragmentTransaction transaction = manager.beginTransaction();
          transaction.add(R.id.fragmentContainer, fragmentB);
          transaction.commit();
