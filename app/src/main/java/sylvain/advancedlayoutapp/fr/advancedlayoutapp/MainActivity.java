@@ -27,6 +27,7 @@ import android.app.Fragment;
      }
 
      public void onReplaceFragment(View view) {
+        //remplacement d'un fragment
         getFragmentManager().beginTransaction().replace(R.id.fragment1 , new FragmentB()).commit();
 
      }

@@ -4,11 +4,26 @@
     android:layout_height="wrap_content"
     tools:context="sylvain.advancedlayoutapp.fr.advancedlayoutapp.FragmentB">
 
-    <!-- TODO: Update blank fragment layout -->
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@color/colorAccent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="FragmentB" />
+
+    <Button
+        android:id="@+id/btFragmentDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Supprimer" />
+
+</LinearLayout>
+
+    <!-- TODO: Update blank fragment layout -->
 
 </FrameLayout>
