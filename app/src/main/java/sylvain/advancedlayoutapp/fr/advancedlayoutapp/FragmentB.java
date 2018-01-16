@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import sylvain.advancedlayoutapp.fr.advancedlayoutapp.model.User;
 
 
 /**
@@ -33,6 +36,12 @@ public class FragmentB extends Fragment {
                 getActivity().getFragmentManager().beginTransaction().remove(myself).commit();
             }
         });
+
+        //Affichage du nom de l'utilisateur
+        TextView myTextVieux = view.findViewById(R.id.textViewFragmentB);
+        //definition du texte  dans le fragment
+        DrawerActivity parent = (DrawerActivity) getActivity();
+        myTextVieux.setText(parent.getUser().getUsername());
 
         return view;
     }
