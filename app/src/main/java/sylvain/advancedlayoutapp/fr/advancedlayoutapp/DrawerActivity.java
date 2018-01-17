@@ -3,6 +3,7 @@ package sylvain.advancedlayoutapp.fr.advancedlayoutapp;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -185,15 +188,48 @@ public class DrawerActivity extends AppCompatActivity
 
                 //Masquage du lien login
                 navigationView.getMenu().findItem(R.id.action_login).setVisible(false);
+                //Affichage du lien Logout
+                navigationView.getMenu().findItem(R.id.action_logout).setVisible(true);
 
                 }
 
                 else {
-                Log.d("Main","Erreur Fireauth code : " + response.getErrorCode());
+                if(response != null ) {
+                    Log.d("Main", "Erreur Fireauth code : " + response.getErrorCode());
+                }
                 Toast.makeText(this,"Impossible de vous identifier",Toast.LENGTH_LONG).show();
                 }
 
         }
+
+    }
+
+    /**
+     * Gestion du Logout
+     * @param item
+     */
+    public void onLogout(MenuItem item) {
+        AuthUI.getInstance().signOut(this).addOnCompleteListener(
+                new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                //Affichage du lien Login
+                navigationView.getMenu().findItem(R.id.action_login).setVisible(true);
+                //Masquage du lien logout
+                navigationView.getMenu().findItem(R.id.action_logout).setVisible(false);
+
+                //Suppression des infos utilisateur dans l'entete
+                userNameTextView.setText("");
+                userEmailTextView.setText("");
+
+                fbUser = null;
+
+                //Fermeture du menu
+                drawer.closeDrawer(GravityCompat.START);
+                }
+            }
+
+        );
 
     }
 }
